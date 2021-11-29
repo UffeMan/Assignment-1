@@ -7,7 +7,7 @@ för diven med id answer-one när man klickar på knappen
 let blue = false;
 
 function taskOne() {
-  elem = document.getElementById("answer-one");
+  let elem = document.getElementById("answer-one");
   if(blue){
     elem.style.backgroundColor = 'white';
     blue = false;
@@ -26,7 +26,10 @@ läggas till i numbers-arrayen, innan arrayen renderas ut i diven med id answer-
 const numbers = [234, 986, 784];
 
 function taskTwo() {
-  alert("Replace this alert with a solution");
+  let elem = document.getElementById("answer-two");
+  numbers[Math.floor(Math.random()*3)] = Math.floor( Math.random()*1000);
+  elem.innerHTML = numbers;
+ 
 }
 
 /*
@@ -37,7 +40,10 @@ inte är helg ska du trigga en alert med meddelandet "FML"
 */
 
 function taskThree() {
-  alert("Replace this alert with a solution");
+  let d = new Date;
+  let str = "FML";
+  if(d.getDay() == 0 || d.getDay() == 6) str = "Woohooo it's weekend"
+  alert(str);
 }
 
 /*
@@ -49,11 +55,17 @@ eller båda värdena inte är ett nummer ska en alertbox med meddelandet "Jag ka
 */
 
 function multiplier(valueOne, valueTwo) {
-  alert("Replace this alert with a solution");
+  if (typeof valueOne == "number" && typeof valueTwo == "number") {
+    alert(valueOne * valueTwo);
+  } else {
+    alert("Jag kan bara multiplicera numer.");
+  }
 }
 
 function taskFour() {
-  multiplier();
+  let tal1 = 7;
+  let tal2 = 13;
+  multiplier(tal1, tal2);
 }
 
 /*
@@ -71,9 +83,16 @@ Skräp: apelsin, päron
 const fruits = ["banan", "äpple", "citron", "apelsin", "päron"];
 const eatable = [];
 const trash = [];
-
+let elem = document.getElementById("answer-five");
 function taskFive() {
-  alert("Replace this alert with a solution");
+  fruits.forEach((element) => {
+    if (element == "apelsin" || element == "päron") {
+      trash.push(element);
+    } else {
+      eatable.push(element);
+    }
+    elem.innerHTML = "Ätligt: " + eatable + "\nSkräp: " + trash;
+  });
 }
 
 /*
