@@ -182,7 +182,8 @@ efter att tre sekunder har gått ska diven visas som vanligt igen
 */
 
 function taskEight() {
-  
+  elem = document.getElementById("answer-eight");
+  elem.style.display = "none"
 }
 
 /*
