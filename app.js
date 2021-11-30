@@ -199,14 +199,15 @@ answer-container till blå, annars ska den ändras till röd
 */
 
 function taskNine() {
-let elements = document.getElementsByClassName("answer-container");
-
-elements.style.backgroundColor = red;
-
-
-
-
-
+  let elements = document.getElementsByClassName("answer-container");
+  let colour = "red";
+  time = new Date();
+  if (time.getHours() >= 17) {
+    colour = "blue";
+  }
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].style.backgroundColor = colour;
+  }
 }
 
 /*
@@ -223,11 +224,33 @@ om någon av dessa conditions inte uppfylls ska du visa en alertbox med texten "
 */
 
 function calculator(valueOne, valueTwo, operator) {
-  alert("Replace this alert with a solution");
+  let mess = "Något är fel";
+  if (typeof valueOne + typeof valueTwo == "numbernumber") {
+    switch (operator) {
+      case "add":
+        mess = valueOne + valueTwo;
+        break;
+      case "subtract":
+        mess = valueOne - valueTwo;
+        break;
+      case "multiply":
+        mess = valueOne * valueTwo;
+        break;
+      case "divide":
+        if (valueTwo != 0) mess = valueOne / valueTwo;
+        break;
+      default:
+        break;
+    }
+  }
+  alert(mess);
 }
 
 function taskTen() {
   //första och andra argumentet ska vara nummer, tredje argumentet ska
   //vara en sträng med något av värdena "add", "subtract", "multiply", "divide"
-  calculator();
+  let t1 = 7;
+  let t2 = 3;
+  let op = "divide";
+  calculator(t1, t2, op);
 }
