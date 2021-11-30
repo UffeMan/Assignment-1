@@ -182,8 +182,14 @@ efter att tre sekunder har gått ska diven visas som vanligt igen
 */
 
 function taskEight() {
-  elem = document.getElementById("answer-eight");
-  elem.style.display = "none"
+  let elem = document.getElementById("card-eight");
+  let old = elem.style.display;
+  elem.style.display = "none";
+
+  let interFunc = setInterval(function () {
+    elem.style.display = old;
+    clearInterval(interFunc);
+  }, 3000);
 }
 
 /*
@@ -193,7 +199,14 @@ answer-container till blå, annars ska den ändras till röd
 */
 
 function taskNine() {
-  alert("Replace this alert with a solution");
+let elements = document.getElementsByClassName("answer-container");
+
+elements.style.backgroundColor = red;
+
+
+
+
+
 }
 
 /*
